@@ -12,7 +12,7 @@ function mediasList(){
         console.log(medias)
         
         // Q. Why are these templates files stored in a separate folder inside contents/?
-        $.get("/instagram/templates/mediasList.jade", function(template) {
+        $.get("/individualAPI/templates/mediasList.jade", function(template) {
 
             // render the template
             var html = jade.render(template, {items: medias})            

@@ -7,7 +7,7 @@ function userView(username){
         var user = data.data[0]
         console.log(user)
 
-        $.get("/instagram/templates/userView.jade", function(template) {
+        $.get("/individualAPI/templates/userView.jade", function(template) {
 
             var html = jade.render(template, {item: user})
             
