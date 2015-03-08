@@ -1,27 +1,27 @@
 // Q: How is this js file loaded?
-function mediasList(){
+function usersList(){
 
     console.log('listing repos')    
     
-    $.get("https://api.instagram.com/v1/media/popular", access_token, function(data) {
+    $.get("https://api.instagram.com/v1/users/search?q=zhili", access_token, function(data) {
 
         // Q: What is the parameter 'github'? Where was it defined? What's the purpose? 
 
         // Q: Why is JSON.parse no longer necessary?
-        var medias = data.data
-        console.log(medias)
+        var users = data.data
+        console.log(users)
         
         // Q. Why are these templates files stored in a separate folder inside contents/?
-        $.get("/individualAPI/templates/mediasList.jade", function(template) {
+        $.get("/instagram/templates/usersList.jade", function(template) {
 
             // render the template
-            var html = jade.render(template, {items: medias})            
+            var html = jade.render(template, {items: users})            
 
             // assign the rendered html to the dom element whose id is #list
             $("#list").html(html)
 
             // load the first repo to view
-            mediaView(medias[0].filter, medias[0].link)
+            userView(users[0].username)
 
         })
 
