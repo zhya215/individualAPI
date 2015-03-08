@@ -12,7 +12,7 @@ function usersList(){
         console.log(users)
         
         // Q. Why are these templates files stored in a separate folder inside contents/?
-        $.get("/instagram/templates/usersList.jade", function(template) {
+        $.get("/individualAPI/templates/usersList.jade", function(template) {
 
             // render the template
             var html = jade.render(template, {items: users})            
